@@ -1,8 +1,8 @@
 function App() {
   return (
-    <div className="app ml-5 ">
+    <div className="app bg-secondary-400">
       <h1>
-        <span className="text-2xl font-bold font-tiltNeon">Hello World</span>
+        <span className="text-2xl font-bold font-tiltNeon text-red-200">Hello World</span>
       </h1>
     </div>
   )

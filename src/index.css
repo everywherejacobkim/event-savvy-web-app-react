@@ -1,5 +1,17 @@
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&family=Tilt+Prism&family=Tilt+Warp&family=Ubuntu:wght@400;500;700&display=swap');
+
+/* Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&family=Tilt+Prism&family=Tilt+Warp&family=Ubuntu:wght@400;500;700&display=swap');
+/* Background */
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  width: 100%;
+  font-family: "Ubuntu", sans-serif;
+}
