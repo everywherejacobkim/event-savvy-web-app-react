@@ -40,12 +40,12 @@ module.exports = {
         tiltPrism: ["Tilt Prism", "cursive"],
       },
       content: {
-        "bonfire": "url('/src/assets/bonfire.jpg')",
-        "concert": "url('/src/assets/concert.jpg')",
-        "indoor_climbing": "url('/src/assets/indoor_climbing.jpg')",
-        "marathon": "url('/src/assets/marathon.jpg')",
-        "tech_meetup": "url('/src/assets/tech_meetup.jpg')",
-        "yoga_class": "url('/src/assets/yoga_class.jpg')",
+        bonfire: "url('/src/assets/bonfire.jpg')",
+        concert: "url('/src/assets/concert.jpg')",
+        indoor_climbing: "url('/src/assets/indoor_climbing.jpg')",
+        marathon: "url('/src/assets/marathon.jpg')",
+        tech_meetup: "url('/src/assets/tech_meetup.jpg')",
+        yoga_class: "url('/src/assets/yoga_class.jpg')",
       },
     },
     screens: {
