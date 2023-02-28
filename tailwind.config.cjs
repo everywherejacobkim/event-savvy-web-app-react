@@ -13,10 +13,14 @@ module.exports = {
           300: "#cdb4db",
         },
         cool: {
-          400: "#bde0fe",
-          500: "#a2d2ff",
-          600: "#779be7",
-        }
+          100: "#bde0fe",
+          200: "#a2d2ff",
+          300: "#779be7",
+        },
+        text: {
+          primary: "#e1ecf7",
+          selected: "#a7cced",
+        },
       },
       backgroundImage: (theme) => ({
         "gradient-yellowGreen": "url('/src/assets/textures/gradient-yellowGreen.jpg')",
@@ -37,9 +41,9 @@ module.exports = {
       },
     },
     screens: {
-      xs: "480px",
-      sm: "768px",
-      md: "1060px",
+      sm: "480px",
+      md: "768px",
+      lg: "1060px",
     }
   },
   plugins: [],
