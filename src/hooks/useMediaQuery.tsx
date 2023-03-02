@@ -11,10 +11,10 @@ const useMediaQuery = (query: string) => {
         const listener = () => {
             setMatches(media.matches)
         }
-        media.addEventListener("resize", listener)
-        return () => media.removeEventListener("resize", listener)
-    }, [matches, query])
+        window.addEventListener("resize", listener)
 
+        return () => window.removeEventListener("resize", listener)
+    }, [query])
 
     return (
         matches
@@ -23,3 +23,4 @@ const useMediaQuery = (query: string) => {
 }
 
 export default useMediaQuery
+
