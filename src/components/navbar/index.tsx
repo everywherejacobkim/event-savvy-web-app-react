@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { GiHamburgerMenu, GiCancel } from 'react-icons/gi';
-import { AiFillCloseSquare, AiOutlineCloseSquare } from 'react-icons/ai';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { AiFillCloseSquare } from 'react-icons/ai';
 import Logo from '@/assets/logo/Logo_transparent.png';
 import Link from './Link';
 import useMediaQuery from '@/hooks/useMediaQuery';
@@ -8,18 +8,20 @@ import useMediaQuery from '@/hooks/useMediaQuery';
 type Props = {
     selectedPage: string;
     setSelectedPage: (value: string) => void;
+    isTop: boolean;
 }
 
-const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
+const Navbar = ({ selectedPage, setSelectedPage, isTop }: Props) => {
 
     const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
 
     const flexBetween = 'flex justify-between items-center';
     const isAboveMobile = useMediaQuery('(min-width: 768px)');
+    const navBackground = isTop ? 'bg-transparent' : 'bg-cool-400 drop-shadow';
     
     return (
         <nav className=''>
-            <div className={`${flexBetween} fixed top-0 z-30 w-full py-6`}>
+            <div className={`${flexBetween} ${navBackground} fixed top-0 z-30 w-full py-6`}>
                 <div className={`${flexBetween} w-5/6 mx-auto`}>
                     <div className={`${flexBetween} w-full gap-16`}>
                         {/** Left Side Logo */}
