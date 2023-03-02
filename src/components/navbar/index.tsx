@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { GiHamburgerMenu, GiCancel } from 'react-icons/gi';
+import { AiFillCloseSquare, AiOutlineCloseSquare } from 'react-icons/ai';
 import Logo from '@/assets/logo/Logo_transparent.png';
 import Link from './Link';
 import useMediaQuery from '@/hooks/useMediaQuery';
@@ -9,12 +10,13 @@ type Props = {
     setSelectedPage: (value: string) => void;
 }
 
-const Navbar = ({selectedPage, setSelectedPage}: Props) => {
+const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
+
+    const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
 
     const flexBetween = 'flex justify-between items-center';
     const isAboveMobile = useMediaQuery('(min-width: 768px)');
     
-
     return (
         <nav className=''>
             <div className={`${flexBetween} fixed top-0 z-30 w-full py-6`}>
@@ -26,7 +28,6 @@ const Navbar = ({selectedPage, setSelectedPage}: Props) => {
                         ) : (
                             <img src={Logo} alt="logo" className="w-24 h-24" />       
                         )}
-             
                         {/** Right Side Menu */}
                         {isAboveMobile ? (
                             <div className={`${flexBetween} w-full text-text-primary`}>
@@ -46,7 +47,7 @@ const Navbar = ({selectedPage, setSelectedPage}: Props) => {
                                 <button
                                     className='rounded-full p-2 w-8 h-8 bg-cool-200'
                                     onClick={() => {
-                                        console.log('clicked');
+                                        setIsMenuToggled(!isMenuToggled);
                                     }
                                 }>
                                     <GiHamburgerMenu className='text-cool-400'/>
@@ -55,6 +56,31 @@ const Navbar = ({selectedPage, setSelectedPage}: Props) => {
                     </div>
                 </div>
             </div>
+            {/** Mobile Menu */}
+            {!isAboveMobile && isMenuToggled && (
+                <div className='fixed right-0 top-0 z-40 h-full w-[300px] bg-warm-100'>
+                    <div className='flex flex-col gap-6 p-10 ml-[25%]'>
+                        <div className='flex justify-end mb-10'>
+                            <button
+                                className='text-cool-400 text-2xl'
+                                onClick={() => {
+                                        setIsMenuToggled(!isMenuToggled);
+                                    }
+                                }>
+                                <AiFillCloseSquare />
+                            </button>
+                        </div>
+                        <div className='flex flex-col gap-10 text-2xl text-cool-500 font-medium'>
+                            {/* {menu links} */}
+                            <Link page='Home' selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+                            <Link page='About' selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+                            <Link page='Events' selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+                            <Link page='Contact' selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+                        </div>
+                    </div>
+                </div>
+            ) 
+            }
         </nav>
     )
 }
